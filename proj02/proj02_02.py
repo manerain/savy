@@ -11,15 +11,17 @@ previous two numbers in the sequence. The sequence looks like this:
 counter = 0
 counter3 = 0
 cntr2 = 1
-loop_control = counter
 fib = raw_input('How many fibonacci numbers do you want to generate:')
 fib = int(fib)
 while counter < fib:
     seq = counter3 + cntr2
     seq = int(seq)
-    print seq
-    cntr2 = seq
+    print cntr2
     counter3 = cntr2
+    cntr2 = seq
     counter = counter + 1
-    
+
+
+
+
 
