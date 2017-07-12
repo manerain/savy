@@ -1,49 +1,60 @@
-# Name:
-# Date:
-
-
-""" 
-proj 03: Guessing Game
-
-Generate a random number between 1 and 9 (including 1 and 9). 
-Ask the user to guess the number, then tell them whether they guessed too low, too high, 
-or exactly right. Keep the game going until the user types exit.
-Keep track of how many guesses the user has taken, and when the game ends, print this out.
-
-"""
 import random
-answer = random.randint(1,9)
-answer = int(answer)
-counter = 0
-print "You have 4 guesses."
-guess = raw_input("I'm thinking of a number between 1 and 9. Can you guess my number? Enter a number, or exit to exit:")
-guess = int(guess)
-True = guess != answer
-loop_control = True
-counter = counter + 1
-if guess == answer:
-    print "Congratulations, you guessed my number! You used", counter,"guess."
-if guess == exit:
-    print "You have exited the game."
-    loop_control = false
-while loop_control == True:
+
+# Name: Trey & Laila
+# Date: July 2017
+
+points = 5
+
+print ""
+print "Welcome to the Guessing Game!"
+enter = raw_input("Press ENTER")
+print ""
+number = random.randint(1,9)
+#guess = raw_input("Guess my number, 1 to 9(enter 0 to end game):")
+number = int(number)
+#True = guess != number
+loop = True
+#if guess == number:
+   # print "Congratulations, you guessed my number!"
+
+
+
+
+while loop == True:
+    guess = raw_input("Guess my number, 1 to 9 (enter 0 to end game): ")
     guess = int(guess)
-    if guess > answer:
-        print 'Your number is too high!'
-        counter = counter + 1
-        guess = raw_input("Enter a number, or 'exit' to end the game:")
-    elif guess < answer:
-        print 'Your number is too low!'
-        counter = counter + 1
-        guess = raw_input("Enter a number, or 'exit' to end the game:")
-    elif guess == answer:
-        print "Congratulations, you guessed my number! You used", counter, "guesses"
-        loop_control = False
-    elif guess == exit:
-        loop_control = False
-    if counter == 4:
-        print "You ran out of guesses! The game has ended."
-        loop_control = False
+    if guess > number:
+        #Too high
+        print ""
+        print "Your guess is too high."
+        points = points - 1
+
+    elif guess < number:
+        #End game
+        if guess == 0:
+            loop = False
+            print "\nYou exited the game."
+            print "Your total points: ", points
+        #Too low
+        elif guess < number:
+            print ""
+            print "Your guess is too low."
+
+            points = points - 1
+
+    elif guess == number:
+        points = points + 5
+        print "\nYou guessed my number! Congratulations!"
+        print "You total points: ", points
+        print ""
+        number = random.randint(1,9)
+
+
+
+
+
+
+
 
 
 
